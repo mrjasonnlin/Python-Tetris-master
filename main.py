@@ -3,9 +3,9 @@ from copy import deepcopy
 from random import choice, randrange
 
 W, H = 10, 20
-TILE = 45
+TILE = 35
 GAME_RES = W * TILE, H * TILE
-RES = 750, 940
+RES = 550, 740
 FPS = 60
 
 pygame.init()
@@ -32,8 +32,8 @@ anim_count, anim_speed, anim_limit = 0, 60, 2000
 bg = pygame.image.load('img/bg.jpg').convert()
 game_bg = pygame.image.load('img/bg2.jpg').convert()
 
-main_font = pygame.font.Font('font/font.ttf', 65)
-font = pygame.font.Font('font/font.ttf', 45)
+main_font = pygame.font.Font('font/font.ttf', 45)
+font = pygame.font.Font('font/font.ttf', 25)
 
 title_tetris = main_font.render('TETRIS', True, pygame.Color('darkorange'))
 title_score = font.render('score:', True, pygame.Color('green'))
@@ -156,15 +156,15 @@ while True:
                 pygame.draw.rect(game_sc, col, figure_rect)
     # draw next figure
     for i in range(4):
-        figure_rect.x = next_figure[i].x * TILE + 380
+        figure_rect.x = next_figure[i].x * TILE + 280
         figure_rect.y = next_figure[i].y * TILE + 185
         pygame.draw.rect(sc, next_color, figure_rect)
     # draw titles
-    sc.blit(title_tetris, (485, -10))
-    sc.blit(title_score, (535, 780))
-    sc.blit(font.render(str(score), True, pygame.Color('white')), (550, 840))
-    sc.blit(title_record, (525, 650))
-    sc.blit(font.render(record, True, pygame.Color('gold')), (550, 710))
+    sc.blit(title_tetris, (375, -10))
+    sc.blit(title_score, (375, 680))
+    sc.blit(font.render(str(score), True, pygame.Color('white')), (475, 680))
+    sc.blit(title_record, (375, 550))
+    sc.blit(font.render(record, True, pygame.Color('gold')), (475, 550))
     # game over
     for i in range(W):
         if field[0][i]:
